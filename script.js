@@ -3,7 +3,7 @@ const ctx = canvas.getContext("2d");
 const img = new Image();
 img.src = "./media/flappy-bird-set.png";
 
-// Parametres generales
+// Paramètres générales
 let gamePlaying = false;
 const gravity = 0.5;
 const speed = 6.2;
@@ -11,7 +11,7 @@ const size = [51, 36];
 const jump = -11.5;
 const cTenth = canvas.width / 10;
 
-// Parametres des poteaux
+// Paramètres des poteaux
 const pipeWidth = 78;
 const pipeGap = 270;
 const pipeLoc = () =>
@@ -125,14 +125,14 @@ const render = () => {
         currentScore++;
         bestScore = Math.max(bestScore, currentScore);
 
-        // Enlever un poteaux + recreer un nouveau
+        // Enlever un poteaux + recréer un nouveau
         pipes = [
           ...pipes.slice(1),
           [pipes[pipes.length - 1][0] + pipeGap + pipeWidth, pipeLoc()],
         ];
       }
 
-      // Si on l'oiseau touche un poteaux, c'est fini
+      // Si on l'oiseau touche un poteaux game over
       if ([
         pipe[0] <= cTenth + size[0], 
         pipe[0] + pipeWidth >= cTenth,
